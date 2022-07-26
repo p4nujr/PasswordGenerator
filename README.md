@@ -22,8 +22,14 @@ No, the generated passwords are random and unknown to us, since it is an autonom
 This program is only an aid to create more secure keys, but it does not guarantee your total security. The choice of a password is ultimately the responsibility of the user, like good habits so that the password is not stolen through social engineering or any other hacking method.
 
 
-## Code
+## Usage
+| Option | Description |
+| ------ | ----------- |
+| 1) Create only one password |  Create only one password with the options we mention in the next table |
+| 2) Create multiple passwords | Create one or more password at one ( the program will ask you how many passwords you want to generate ) |
+| 3) Exit | Exit the program xD |
 
+## Output
 ```
-code
+
 ```
