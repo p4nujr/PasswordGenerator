@@ -20,3 +20,10 @@ No, the generated passwords are random and unknown to us, since it is an autonom
 
 #### Terms of use:
 This program is only an aid to create more secure keys, but it does not guarantee your total security. The choice of a password is ultimately the responsibility of the user, like good habits so that the password is not stolen through social engineering or any other hacking method.
+
+
+##Code
+
+```
+code
+´´´
