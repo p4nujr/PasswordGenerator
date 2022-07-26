@@ -52,7 +52,7 @@ KwzNKC01ht%7@nQj
 ```
 
 ## Extra
-####[Some password recommendations]
+#### [Some password recommendations]
 Always use a unique password for each account you create. The danger of reusing passwords is that as soon as a website faces a security issue, it becomes very easy for hackers to try the same username and password combination on other websites.
 Do not use personal information in your passwords. Names, birthdays, and postal addresses may be easy to remember, but they can also be easily found on the Internet, and their use as passwords should always be avoided to ensure maximum security.
 Make sure passwords are at least 16 characters long and contain letters, numbers, and special characters.
