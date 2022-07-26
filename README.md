@@ -23,13 +23,31 @@ This program is only an aid to create more secure keys, but it does not guarante
 
 
 ## Usage
+
+**Options**
 | Option | Description |
 | ------ | ----------- |
 | 1) Create only one password |  Create only one password with the options we mention in the next table |
 | 2) Create multiple passwords | Create one or more password at one with the options we mentin in the next table ( the program will ask you how many passwords you want to generate ) |
 | 3) Exit | Exit the program xD |
 
-## Output
-```
+**What type of password you want?**
+| Option | Description |
+| ------ | ----------- |
+| Easy to say | avoid numbers and special characters |
+| Easy to read | avoid ambiguous characters like O,0,l,|,I... |
+| All characters | Use all possible characters for my password |
 
+**Length of the password**
+You will be asked for the length of the password (recommended minimum 16 characters)
+
+
+## Output
+
+**Create only one password > all characters > 16 characters
+```
+-> Your Password is:
+--------------------------------------
+FdfS%@566p24ydRy
+--------------------------------------
 ```
