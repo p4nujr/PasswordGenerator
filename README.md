@@ -26,7 +26,7 @@ This program is only an aid to create more secure keys, but it does not guarante
 | Option | Description |
 | ------ | ----------- |
 | 1) Create only one password |  Create only one password with the options we mention in the next table |
-| 2) Create multiple passwords | Create one or more password at one ( the program will ask you how many passwords you want to generate ) |
+| 2) Create multiple passwords | Create one or more password at one with the options we mentin in the next table ( the program will ask you how many passwords you want to generate ) |
 | 3) Exit | Exit the program xD |
 
 ## Output
