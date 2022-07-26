@@ -1,4 +1,4 @@
-## PasswordGenerator by p4nujr 
+## PasswordGenerator by p4nujr (https://media.istockphoto.com/vectors/lock-icon-vector-id936681148?k=20&m=936681148&s=612x612&w=0&h=j6fxNWrJ09iE7khUsDWetKn_PwWydgIS0yFJBEonGow=)
 
 **Generate random and secure passwords:**
 Passwords are a real security threat. A recent report reveals that more than 80% of vulnerabilities related to hacker attacks are due to weak or stolen passwords. So if you want to protect your personal information and assets, creating strong passwords is a great first step. That's when the PasswordGenerator can help. 
