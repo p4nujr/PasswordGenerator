@@ -64,7 +64,7 @@ Avoid using similar passwords where only one word or character changes. This pra
 Change your passwords as soon as you have a reason to, such as when you've shared them with someone, after a website breach, or if it's been more than a year since you last updated them.
 
 #### [Do you save my generated password?]
-No, the generated passwords are random and unknown to us, since it is an autonomous application that you will run on your own computer.
+No, your generated passwords are random and unknown to us, since it is an autonomous application that you will run on your own computer.
 
 #### [Terms of use:]
 This program is only an aid to create more secure keys, but it does not guarantee your total security. The choice of a password is ultimately the responsibility of the user, like good habits so that the password is not stolen through social engineering or any other hacking method.
