@@ -16,7 +16,7 @@ Uncrackable passwords are complex and include various types of characters (numbe
 **What type of password you want?**
 | Option | Description |
 | ------ | ----------- |
-| Easy to say | avoid numbers and special characters |
+| Easy to say (not recommended) | avoid numbers and special characters |
 | Easy to read | avoid ambiguous characters like O,0,l,|,I... |
 | All characters | Use all possible characters for my password |
 
