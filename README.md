@@ -2,7 +2,7 @@
 ## PasswordGenerator by p4nujr
 **Generate random and secure passwords:**
 Passwords are a real security threat. A recent report reveals that more than 80% of vulnerabilities related to hacker attacks are due to weak or stolen passwords. So if you want to protect your personal information and assets, creating strong passwords is a great first step. That's when the PasswordGenerator can help. 
-Uncrackable passwords are complex and include various types of characters (numbers, letters, and symbols). Using a different password for each website or app also helps protect against hacker attacks. This password generator tool runs locally on your Windows, Mac, or Linux computer, as well as on your iOS or Android device. The passwords you generate are never sent over the Internet.
+Uncrackable passwords are complex and include various types of characters (numbers, letters, and symbols). Using a different password for each website or app also helps protect against hacker attacks.
 
 ## Usage
 
