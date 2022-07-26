@@ -3,7 +3,7 @@
 Generate random and secure passwords:
 Passwords are a real security threat. A recent report reveals that more than 80% of vulnerabilities related to hacker attacks are due to weak or stolen passwords. So if you want to protect your personal information and assets, creating strong passwords is a great first step. That's when the PasswordGenerator can help. Uncrackable passwords are complex and include various types of characters (numbers, letters, and symbols). Using a different password for each website or app also helps protect against hacker attacks. This password generator tool runs locally on your Windows, Mac, or Linux computer, as well as on your iOS or Android device. The passwords you generate are never sent over the Internet.
 
-# Some password recommendations :)
+## Some password recommendations :)
 Always use a unique password for each account you create. The danger of reusing passwords is that as soon as a website faces a security issue, it becomes very easy for hackers to try the same username and password combination on other websites.
 Do not use personal information in your passwords. Names, birthdays, and postal addresses may be easy to remember, but they can also be easily found on the Internet, and their use as passwords should always be avoided to ensure maximum security.
 Make sure passwords are at least 16 characters long and contain letters, numbers, and special characters.
