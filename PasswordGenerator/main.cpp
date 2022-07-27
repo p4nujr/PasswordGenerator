@@ -80,36 +80,38 @@ int whichOption()
 char GenRand(int typePassword)
 {
 	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell the password
-	if (typePassword == 1)
+	switch (typePassword)
+	{
+	
+	case 1:
 	{
 		constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
 		int strLen{ sizeof(onlyAlphabet) - 1 };
 		return onlyAlphabet[rand() % strLen];
 	}
-	
 	//if user enter 2, then avoid ambigous characters like O,0,l,|,I...
-	if (typePassword == 2)
+	case 2:
 	{
 		constexpr char easy2read[] = "23456789" "@#$%^&*" "ABCDEFGHJKLMNLOPQRSTUVWXYZ" "abcdefghijkmnopqrstuvwxyz";
 		int strLen{ sizeof(easy2read) - 1 };
 		return easy2read[rand() % strLen];
 	}
-	
 	//if user enter 3, then pick all characters
-	if (typePassword == 3)
+	case 3:
 	{
 		constexpr char allCharacters[] = "0123456789" "~!@#$%^&*" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
 		int strLen{ sizeof(allCharacters) - 1 };
-		
-		return allCharacters[rand() % strLen];
 
+		return allCharacters[rand() % strLen];
 	}
+	}
+	
 }
 
 //call Genrand() function and print password
 void printPassword(int length, int typePassword)
 {
-	
+
 	for (int count = 0; count < length; count++)
 	{
 		char character{ GenRand(typePassword) };
@@ -147,32 +149,38 @@ void option2()
 	}
 	std::cout << "--------------------------------------\n";
 }
- 
+
 int main()
 {
 	system("color 0C");
-	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
-
 	srand(time(NULL));
-
-	if (option == 1)
+	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
+	
+	switch (option)
+	{
+	case 1:
+	{
 		option1();
-
-	if (option == 2)
+	}
+	
+	case 2:
+	{
 		option2();
+	}
 
-	if (option == 3)
+	case 3:
 	{
 		std::cout << "Exiting...\n";
 		exit;
 	}
 
-	if (option != 1 && option != 2 && option != 3)
+	default:
 	{
 		std::cout << "--------------------------------------\n";
 		std::cout << "Invalid option :)\n";
 		std::cout << "--------------------------------------\n";
 		exit;
+	}
 	}
 	system("PAUSE");
 
