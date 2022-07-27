@@ -5,10 +5,9 @@
 
 
 
-//brief presentation of the tool + options
+//brief presentation of the tool options
 int presentationOptions()
 {
-	std::cout << "--------------------------------------\nThis tool creates strong passwords\n--------------------------------------\n\n";
 	std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit\n\n> ";
 	int option{};
 	std::cin >> option;
@@ -21,6 +20,7 @@ int presentationOptions()
 int requestLengthPass()
 {
 	int length{};
+lengthAgain:
 	std::cout << "Please enter the length of the password(recommended min.16)\n> ";
 	std::cin >> length;
 	std::cout << '\n';
@@ -30,8 +30,7 @@ int requestLengthPass()
 		std::cout << "--------------------------------------\n";
 		std::cout << "Invalid option :)\n";
 		std::cout << "--------------------------------------\n";
-		system("PAUSE");
-		exit(EXIT_FAILURE);
+		goto lengthAgain;
 	}
 
 	return length;
@@ -40,8 +39,9 @@ int requestLengthPass()
 //request of the number of characters of the password
 int requestNumofPass()
 {
-	std::cout << "\nHow many passwords do you want to create?\n> ";
 	int howmany{};
+passNumberAgain:
+	std::cout << "\nHow many passwords do you want to create?\n> ";
 	std::cin >> howmany;
 
 	if (howmany < 1)
@@ -49,8 +49,7 @@ int requestNumofPass()
 		std::cout << "--------------------------------------\n";
 		std::cout << "Invalid option :)\n";
 		std::cout << "--------------------------------------\n";
-		system("PAUSE");
-		exit(EXIT_FAILURE);
+		goto passNumberAgain;
 	}
 
 	return howmany;
@@ -59,8 +58,9 @@ int requestNumofPass()
 //request, how would the password create?
 int whichOption()
 {
-	std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
 	int typePassword{};
+optionAgain:
+	std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
 	std::cin >> typePassword;
 	std::cout << '\n';
 
@@ -69,8 +69,7 @@ int whichOption()
 		std::cout << "--------------------------------------\n";
 		std::cout << "Invalid option :)\n";
 		std::cout << "--------------------------------------\n";
-		system("PAUSE");
-		exit(EXIT_FAILURE);
+		goto optionAgain;
 	}
 
 	return typePassword;
@@ -82,7 +81,7 @@ char GenRand(int typePassword)
 	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell the password
 	switch (typePassword)
 	{
-	
+
 	case 1:
 	{
 		constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
@@ -105,7 +104,7 @@ char GenRand(int typePassword)
 		return allCharacters[rand() % strLen];
 	}
 	}
-	
+
 }
 
 //call Genrand() function and print password
@@ -153,19 +152,23 @@ void option2()
 int main()
 {
 	system("color 0C");
+	std::cout << "--------------------------------------\nThis tool creates strong passwords\n--------------------------------------\n\n";
 	srand(time(NULL));
+mainAgain:
 	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
-	
+
 	switch (option)
 	{
 	case 1:
 	{
 		option1();
+		break;
 	}
-	
+
 	case 2:
 	{
 		option2();
+		break;
 	}
 
 	case 3:
@@ -178,12 +181,11 @@ int main()
 	{
 		std::cout << "--------------------------------------\n";
 		std::cout << "Invalid option :)\n";
-		std::cout << "--------------------------------------\n";
-		exit;
+		std::cout << "--------------------------------------\n\n";
+		goto mainAgain;
 	}
 	}
 	system("PAUSE");
 
 	return 0;
 }
-
