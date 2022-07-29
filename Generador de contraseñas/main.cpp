@@ -3,76 +3,148 @@
 #include <windows.h>
 #include <ctime>
 
-
+void ignoreLine()
+{
+	std::cin.ignore(10000, '\n');
+}
 
 //brief presentation of the tool options
 int presentationOptions()
 {
-	std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit\n\n> ";
-	int option{};
-	std::cin >> option;
-	std::cout << '\n';
+	while (true)
+	{
+		std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit\n\n> ";
+		int option{};
+		std::cin >> option;
+		std::cout << '\n';
 
-	return option;
+		if (!std::cin)
+		{
+			std::cin.clear();
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else
+		{
+			ignoreLine();
+			return option;
+		}
+		
+	}
+	
 }
 
 //request for the length of the password
 int requestLengthPass()
 {
-	int length{};
-lengthAgain:
-	std::cout << "Please enter the length of the password(recommended min.16)\n> ";
-	std::cin >> length;
-	std::cout << '\n';
-
-	if (length < 1)
+	while (true)
 	{
-		std::cout << "--------------------------------------\n";
-		std::cout << "Invalid option :)\n";
-		std::cout << "--------------------------------------\n";
-		goto lengthAgain;
-	}
+		int length{};
+		std::cout << "Please enter the length of the password(recommended min.16)\n> ";
+		std::cin >> length;
+		std::cout << '\n';
 
-	return length;
+		if (!std::cin)
+		{
+			std::cin.clear();
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else if (length < 1)
+		{
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else
+		{
+			ignoreLine();
+			return length;
+		}
+
+		
+	}
+	
 }
 
 //request of the number of characters of the password
 int requestNumofPass()
 {
-	int howmany{};
-passNumberAgain:
-	std::cout << "\nHow many passwords do you want to create?\n> ";
-	std::cin >> howmany;
-
-	if (howmany < 1)
+	while (true)
 	{
-		std::cout << "--------------------------------------\n";
-		std::cout << "Invalid option :)\n";
-		std::cout << "--------------------------------------\n";
-		goto passNumberAgain;
-	}
+		int howmany{};
+		std::cout << "\nHow many passwords do you want to create?\n> ";
+		std::cin >> howmany;
 
-	return howmany;
-}
+		if (!std::cin)
+		{
+			std::cin.clear();
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+		else if (howmany < 1)
+		{
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else
+		{
+			ignoreLine();
+			return howmany;
+		}
+		
+	}
+	}
+	
 
 //request, how would the password create?
 int whichOption()
 {
-	int typePassword{};
-optionAgain:
-	std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
-	std::cin >> typePassword;
-	std::cout << '\n';
-
-	if (typePassword != 1 && typePassword != 2 && typePassword != 3)
+	while (true)
 	{
-		std::cout << "--------------------------------------\n";
-		std::cout << "Invalid option :)\n";
-		std::cout << "--------------------------------------\n";
-		goto optionAgain;
+		int typePassword{};
+		std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
+		std::cin >> typePassword;
+		std::cout << '\n';
+
+		if (!std::cin)
+		{
+			std::cin.clear();
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else if (typePassword != 1 && typePassword != 2 && typePassword != 3)
+		{
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
+		else
+		{
+			ignoreLine();
+			return typePassword;
+		}
+		
 	}
 
-	return typePassword;
 }
 
 //generate random characters for the password
@@ -188,5 +260,4 @@ mainAgain:
 	system("PAUSE");
 
 	return 0;
-	
 }
