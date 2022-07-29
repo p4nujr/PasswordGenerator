@@ -27,6 +27,14 @@ int presentationOptions()
 			std::cout << "--------------------------------------\n";
 		}
 
+		else if (option != 1 && option != 2 && option != 3)
+		{
+			ignoreLine();
+			std::cout << "--------------------------------------\n";
+			std::cout << "Invalid option :)\n";
+			std::cout << "--------------------------------------\n";
+		}
+
 		else
 		{
 			ignoreLine();
@@ -226,7 +234,6 @@ int main()
 	system("color 0C");
 	std::cout << "--------------------------------------\nThis tool creates strong passwords\n--------------------------------------\n\n";
 	srand(time(NULL));
-mainAgain:
 	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
 
 	switch (option)
@@ -247,14 +254,6 @@ mainAgain:
 	{
 		std::cout << "Exiting...\n";
 		exit;
-	}
-
-	default:
-	{
-		std::cout << "--------------------------------------\n";
-		std::cout << "Invalid option :)\n";
-		std::cout << "--------------------------------------\n\n";
-		goto mainAgain;
 	}
 	}
 	system("PAUSE");
