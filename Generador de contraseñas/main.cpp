@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <windows.h>
-#include <ctime>
+#include <random>
+#include <chrono>
 
 void ignoreLine()
 {
@@ -158,30 +159,34 @@ int whichOption()
 //generate random characters for the password
 char GenRand(int typePassword)
 {
-	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell the password
+	std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+	
 	switch (typePassword)
 	{
-
+	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell the password
 	case 1:
 	{
 		constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
-		int strLen{ sizeof(onlyAlphabet) - 1 };
-		return onlyAlphabet[rand() % strLen];
+		std::uniform_int_distribution number{ 0 , 53 };
+		int defNum{ number(mt) };
+		return onlyAlphabet[defNum];
+		
 	}
 	//if user enter 2, then avoid ambigous characters like O,0,l,|,I...
 	case 2:
 	{
 		constexpr char easy2read[] = "23456789" "@#$%^&*" "ABCDEFGHJKLMNLOPQRSTUVWXYZ" "abcdefghijkmnopqrstuvwxyz";
-		int strLen{ sizeof(easy2read) - 1 };
-		return easy2read[rand() % strLen];
+		std::uniform_int_distribution number{ 0 , 66 };
+		int defNum{ number(mt) };
+		return easy2read[defNum];
 	}
 	//if user enter 3, then pick all characters
 	case 3:
 	{
 		constexpr char allCharacters[] = "0123456789" "~!@#$%^&*" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
-		int strLen{ sizeof(allCharacters) - 1 };
-
-		return allCharacters[rand() % strLen];
+		std::uniform_int_distribution number{ 0 , 71 };
+		int defNum{ number(mt) };
+		return allCharacters[defNum];
 	}
 	}
 
@@ -233,7 +238,6 @@ int main()
 {
 	system("color 0C");
 	std::cout << "--------------------------------------\nThis tool creates strong passwords\n--------------------------------------\n\n";
-	srand(time(NULL));
 	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
 
 	switch (option)
