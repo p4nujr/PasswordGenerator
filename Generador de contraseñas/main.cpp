@@ -3,17 +3,24 @@
 #include <random>
 #include <chrono>
 
+void invalidOption()
+{
+	std::cout << "--------------------------------------\n";
+	std::cout << "Invalid option :)\n";
+	std::cout << "--------------------------------------\n";
+}
+
 void ignoreLine()
 {
 	std::cin.ignore(10000, '\n');
 }
 
-//brief presentation of the tool options
+//brief presentation of the tool options and user input
 int presentationOptions()
 {
 	while (true)
 	{
-		std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit\n\n> ";
+		std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit:\n\n> ";
 		int option{};
 		std::cin >> option;
 		std::cout << '\n';
@@ -22,17 +29,13 @@ int presentationOptions()
 		{
 			std::cin.clear();
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else if (option != 1 && option != 2 && option != 3)
 		{
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else
@@ -45,7 +48,7 @@ int presentationOptions()
 	
 }
 
-//request for the length of the password
+//password lengthening request
 int requestLengthPass()
 {
 	while (true)
@@ -59,17 +62,13 @@ int requestLengthPass()
 		{
 			std::cin.clear();
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else if (length < 1)
 		{
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else
@@ -83,7 +82,7 @@ int requestLengthPass()
 	
 }
 
-//request of the number of characters of the password
+//request for the number of characters in the password
 int requestNumofPass()
 {
 	while (true)
@@ -96,16 +95,12 @@ int requestNumofPass()
 		{
 			std::cin.clear();
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 		else if (howmany < 1)
 		{
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else
@@ -118,7 +113,7 @@ int requestNumofPass()
 	}
 	
 
-//request, how would the password create?
+//format that the password must meet
 int whichOption()
 {
 	while (true)
@@ -132,17 +127,13 @@ int whichOption()
 		{
 			std::cin.clear();
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else if (typePassword != 1 && typePassword != 2 && typePassword != 3)
 		{
 			ignoreLine();
-			std::cout << "--------------------------------------\n";
-			std::cout << "Invalid option :)\n";
-			std::cout << "--------------------------------------\n";
+			invalidOption();
 		}
 
 		else
@@ -155,14 +146,14 @@ int whichOption()
 
 }
 
-//generate random characters for the password
+//generate random characters for password
 char GenRand(int typePassword)
 {
 	std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
 	
 	switch (typePassword)
 	{
-	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell the password
+	//if user enter 1, then avoid numbers and special characters, so that it is easy to spell
 	case 1:
 	{
 		constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
@@ -236,8 +227,8 @@ void option2()
 int main()
 {
 	system("color 0C");
-	std::cout << "--------------------------------------\nThis tool creates strong passwords\n--------------------------------------\n\n";
-	int option{ presentationOptions() };	//create variable for the option that the user prefer and use if-sentences
+	std::cout << "-----------------------------------------\nThis tool creates strong passwords\n-----------------------------------------|by p4nujr|\n\n";
+	int option{ presentationOptions() };
 
 	switch (option)
 	{
