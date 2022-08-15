@@ -1,5 +1,5 @@
 ![Candado](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSobhvECowzgl_kkJrIm2cjKq0G8yoTlqOUZvQyE805KAvGhnkqIW9bpyoAiwcI62a7VsU&usqp=CAU)
-## PasswordGenerator by p4nujr
+## PasswordGenerator by p4nujr (for windows)
 **Generate random and secure passwords:**
 Passwords are a real security threat. A recent report reveals that more than 80% of vulnerabilities related to hacker attacks are due to weak or stolen passwords. So if you want to protect your personal information and assets, creating strong passwords is a great first step. That's when the PasswordGenerator can help. 
 Uncrackable passwords are complex and include various types of characters (numbers, letters, and symbols). Using a different password for each website or app also helps protect against hacker attacks.
