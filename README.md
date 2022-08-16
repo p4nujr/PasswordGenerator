@@ -4,6 +4,13 @@
 Passwords are a real security threat. A recent report reveals that more than 80% of vulnerabilities related to hacker attacks are due to weak or stolen passwords. So if you want to protect your personal information and assets, creating strong passwords is a great first step. That's when the PasswordGenerator can help. 
 Uncrackable passwords are complex and include various types of characters (numbers, letters, and symbols). Using a different password for each website or app also helps protect against hacker attacks.
 
+## Installation
+```
+git clone https://github.com/p4nujr/PasswordGenerator.git
+cd PasswordGenerator
+chmod +x PasswordGenerator
+./PasswordGenerator
+```
 ## Usage
 
 **Options**
