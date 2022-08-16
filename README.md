@@ -20,7 +20,7 @@ Uncrackable passwords are complex and include various types of characters (numbe
 | Easy to read | avoid ambiguous characters like O,0,l,|,I... |
 | All characters | Use all possible characters for my password |
 
-**Length of the password**
+**Length of the password:**
 You will be asked for the length of the password (recommended minimum 16 characters)
 
 
