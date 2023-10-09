@@ -73,3 +73,5 @@ No, your generated passwords are random and remain confidential, as it is a self
 
 #### [Terms of use:]
 This program is only an aid to create more secure keys, but it does not guarantee your total security. The choice of a password is ultimately the responsibility of the user, like good habits so that the password is not stolen through social engineering or any other hacking method.
+
+## (Tested on Kali Linux 2022.2)
