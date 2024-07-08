@@ -4,252 +4,235 @@
 
 void invalidOption()
 {
-        std::cout << "--------------------------------------\n";
-        std::cout << "Invalid option :)\n";
-        std::cout << "--------------------------------------\n";
+    std::cout << "--------------------------------------\n";
+    std::cout << "Invalid option :)\n";
+    std::cout << "--------------------------------------\n";
 }
 
 void ignoreLine()
 {
-        std::cin.ignore(10000, '\n');
+    std::cin.ignore(10000, '\n');
 }
 
-//brief presentation of the tool options and user input
+// Brief presentation of the tool options and user input
 int presentationOptions()
 {
-        while (true)
+    while (true)
+    {
+        std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit:\n\n> ";
+        int option{};
+        std::cin >> option;
+        std::cout << '\n';
+
+        if (!std::cin)
         {
-                std::cout << "1) Create only one password: \n2) Create multiple passwords: \n3) Exit:\n\n> ";
-                int option{};
-                std::cin >> option;
-                std::cout << '\n';
-
-                if (!std::cin)
-                {
-                        std::cin.clear();
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else if (option != 1 && option != 2 && option != 3)
-                {
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else
-                {
-                        ignoreLine();
-                        return option;
-                }
-
+            std::cin.clear();
+            ignoreLine();
+            invalidOption();
         }
-
+        else if (option != 1 && option != 2 && option != 3)
+        {
+            ignoreLine();
+            invalidOption();
+        }
+        else
+        {
+            ignoreLine();
+            return option;
+        }
+    }
 }
 
-//password lengthening request
+// Password lengthening request
 int requestLengthPass()
 {
-        while (true)
+    while (true)
+    {
+        int length{};
+        std::cout << "Please enter the length of the password (recommended min.16)\n> ";
+        std::cin >> length;
+        std::cout << '\n';
+
+        if (!std::cin)
         {
-                int length{};
-                std::cout << "Please enter the length of the password(recommended min.16)\n> ";
-                std::cin >> length;
-                std::cout << '\n';
-
-                if (!std::cin)
-                {
-                        std::cin.clear();
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else if (length < 1)
-                {
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else
-                {
-                        ignoreLine();
-                        return length;
-                }
-
-
+            std::cin.clear();
+            ignoreLine();
+            invalidOption();
         }
-
+        else if (length < 1)
+        {
+            ignoreLine();
+            invalidOption();
+        }
+        else
+        {
+            ignoreLine();
+            return length;
+        }
+    }
 }
 
-//request for the number of characters in the password
+// Request for the number of passwords
 int requestNumofPass()
 {
-        while (true)
+    while (true)
+    {
+        int howmany{};
+        std::cout << "\nHow many passwords do you want to create?\n> ";
+        std::cin >> howmany;
+
+        if (!std::cin)
         {
-                int howmany{};
-                std::cout << "\nHow many passwords do you want to create?\n> ";
-                std::cin >> howmany;
-
-                if (!std::cin)
-                {
-                        std::cin.clear();
-                        ignoreLine();
-                        invalidOption();
-                }
-                else if (howmany < 1)
-                {
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else
-                {
-                        ignoreLine();
-                        return howmany;
-                }
-
+            std::cin.clear();
+            ignoreLine();
+            invalidOption();
         }
-        }
-
-
-//format that the password must meet
-int whichOption()
-{
-        while (true)
+        else if (howmany < 1)
         {
-                int typePassword{};
-                std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
-                std::cin >> typePassword;
-                std::cout << '\n';
-
-                if (!std::cin)
-                {
-                        std::cin.clear();
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else if (typePassword != 1 && typePassword != 2 && typePassword != 3)
-                {
-                        ignoreLine();
-                        invalidOption();
-                }
-
-                else
-                {
-                        ignoreLine();
-                        return typePassword;
-                }
-
+            ignoreLine();
+            invalidOption();
         }
-
+        else
+        {
+            ignoreLine();
+            return howmany;
+        }
+    }
 }
 
-//generate random characters for password
-char GenRand(int typePassword)
+// Format that the password must meet
+int whichOption()
 {
-        std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+    while (true)
+    {
+        int typePassword{};
+        std::cout << "\n-Which option do you prefer?\n1) Easy to say (avoid numbers and special characters) -> not recommended\n2) Easy to read (avoid ambiguous characters like O,0,l,|,I...)\n3) All characters\n> ";
+        std::cin >> typePassword;
+        std::cout << '\n';
 
-        switch (typePassword)
+        if (!std::cin)
         {
-        //if user enter 1, then avoid numbers and special characters, so that it is easy to spell
+            std::cin.clear();
+            ignoreLine();
+            invalidOption();
+        }
+        else if (typePassword != 1 && typePassword != 2 && typePassword != 3)
+        {
+            ignoreLine();
+            invalidOption();
+        }
+        else
+        {
+            ignoreLine();
+            return typePassword;
+        }
+    }
+}
+
+// Generate random characters for password
+char GenRand(int typePassword, std::mt19937& mt)
+{
+    switch (typePassword)
+    {
+        // If user enter 1, then avoid numbers and special characters, so that it is easy to spell
         case 1:
         {
-                constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
-                std::uniform_int_distribution<> number{ 0 , 53 };
-                int defNum{ number(mt) };
-                return onlyAlphabet[defNum];
-
+            constexpr char onlyAlphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
+            std::uniform_int_distribution<> number{ 0 , 51 };
+            return onlyAlphabet[number(mt)];
         }
-        //if user enter 2, then avoid ambigous characters like O,0,l,|,I...
+        // If user enter 2, then avoid ambiguous characters like O,0,l,|,I...
         case 2:
         {
-                constexpr char easy2read[] = "23456789" "@#$%^&*" "ABCDEFGHJKLMNLOPQRSTUVWXYZ" "abcdefghijkmnopqrstuvwxyz";
-                std::uniform_int_distribution<> number{ 0 , 66 };
-                int defNum{ number(mt) };
-                return easy2read[defNum];
+            constexpr char easy2read[] = "23456789" "@#$%^&*" "ABCDEFGHJKLMNPQRSTUVWXYZ" "abcdefghijkmnopqrstuvwxyz";
+            std::uniform_int_distribution<> number{ 0 , 65 };
+            return easy2read[number(mt)];
         }
-        //if user enter 3, then pick all characters
+        // If user enter 3, then pick all characters
         case 3:
         {
-                constexpr char allCharacters[] = "0123456789" "~!@#$%^&*" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
-                std::uniform_int_distribution<> number{ 0 , 71 };
-                int defNum{ number(mt) };
-                return allCharacters[defNum];
+            constexpr char allCharacters[] = "0123456789" "~!@#$%^&*" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz";
+            std::uniform_int_distribution<> number{ 0 , 71 };
+            return allCharacters[number(mt)];
         }
-        }
+    }
     return 0;
 }
 
-//call Genrand() function and print password
-void printPassword(int length, int typePassword)
+// Call GenRand() function and print password
+void printPassword(int length, int typePassword, std::mt19937& mt)
 {
-
-        for (int count = 0; count < length; count++)
-        {
-                char character{ GenRand(typePassword) };
-                std::cout << character;
-        }
-        std::cout << '\n';
+    for (int count = 0; count < length; count++)
+    {
+        char character{ GenRand(typePassword, mt) };
+        std::cout << character;
+    }
+    std::cout << '\n';
 }
 
-//execute option 1 (create only one password with the length that the user specified)
+// Execute option 1 (create only one password with the length that the user specified)
 void option1()
 {
-        system("clear");
-        int typePassword{ whichOption() };
-        int length{ requestLengthPass() };
-        system("clear");
-        std::cout << "\n-> Your Password is: \n";
-        std::cout << "--------------------------------------\n";
-        printPassword(length, typePassword);
-        std::cout << "--------------------------------------\n";
+    system("clear");
+    int typePassword{ whichOption() };
+    int length{ requestLengthPass() };
+    system("clear");
+
+    std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+
+    std::cout << "\n-> Your Password is: \n";
+    std::cout << "--------------------------------------\n";
+    printPassword(length, typePassword, mt);
+    std::cout << "--------------------------------------\n";
 }
 
-//execute option 2 (create multiple passwords with the length that the user specified )
+// Execute option 2 (create multiple passwords with the length that the user specified)
 void option2()
 {
-        system("clear");
-        int howmany{ requestNumofPass() };
-        int typePassword{ whichOption() };
-        int length{ requestLengthPass() };
-        system("clear");
-        std::cout << "\n-> Your Passwords are: \n" << '\n';
-        std::cout << "--------------------------------------\n";
-        for (int count = 0; count < howmany; count++)
-        {
-                printPassword(length, typePassword);
-        }
-        std::cout << "--------------------------------------\n";
+    system("clear");
+    int howmany{ requestNumofPass() };
+    int typePassword{ whichOption() };
+    int length{ requestLengthPass() };
+    system("clear");
+
+    std::mt19937 mt{ static_cast<unsigned int>(std::chrono::steady_clock::now().time_since_epoch().count()) };
+
+    std::cout << "\n-> Your Passwords are: \n" << '\n';
+    std::cout << "--------------------------------------\n";
+    for (int count = 0; count < howmany; count++)
+    {
+        printPassword(length, typePassword, mt);
+    }
+    std::cout << "--------------------------------------\n";
 }
 
 int main()
 {
-        system("clear");
-        std::cout << "-----------------------------------------\nThis tool creates strong passwords\n-----------------------------------------|by p4nujr|\n\n";
-        int option{ presentationOptions() };
+    system("clear");
+    std::cout << "-----------------------------------------\nThis tool creates strong passwords\n-----------------------------------------|by p4nujr|\n\n";
+    int option{ presentationOptions() };
 
-        switch (option)
-        {
+    switch (option)
+    {
         case 1:
         {
-                option1();
-                break;
+            option1();
+            break;
         }
 
         case 2:
         {
-                option2();
-                break;
+            option2();
+            break;
         }
 
         case 3:
         {
-                std::cout << "Exiting...\n";
-                system("exit");
+            std::cout << "Exiting...\n";
+            system("exit");
         }
-        }
-        getchar();
+    }
+    getchar();
 
-        return 0;
-} 
+    return 0;
+}
